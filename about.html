@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abinash Pradhan | About Me</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --secondary: #64748b;
+            --dark: #0f172a;
+            --light: #f8fafc;
+            --gradient-primary: linear-gradient(135deg, #4f46e5 0%, #818cf8 100%);
+            --card-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+            --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            --card-border-radius: 1rem;
+            --tag-bg: #f3f4f6;
+            --border-color: #e5e7eb;
+            --background-color: #f0f4f8;
+            --card-background: #ffffff;
+            --text-color: #0f172a;
+        }
+
+        /* Dark mode variables */
+        .dark-mode {
+            --primary: #818cf8;
+            --secondary: #94a3b8;
+            --dark: #e2e8f0;
+            --light: #0f172a;
+            --background-color: #1e293b;
+            --card-background: #1e293b;
+            --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            --text-color: #e2e8f0;
+            --border-color: #334155;
+            --tag-bg: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            transition: var(--transition);
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--background-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            position: relative;
+            min-height: 100vh;
+            background-image:
+                radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.1) 0%, transparent 25%),
+                radial-gradient(circle at 100% 100%, rgba(79, 70, 229, 0.1) 0%, transparent 25%);
+        }
+
+        .header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 4rem 0 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            height: 100px;
+            background: var(--background-color);
+            transform: skewY(-3deg);
+        }
+
+        .header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.3s;
+        }
+
+        .typewriter-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 3rem;
+            margin-bottom: 1.5rem;
+            font-size: 1.8rem;
+            font-weight: 600;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 1s forwards 0.5s;
+        }
+
+        .static-text {
+            margin-right: 0.5rem;
+        }
+
+        .dynamic-text-wrapper {
+            height: 3rem;
+            line-height: 3rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .dynamic-text {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            animation: slide 12s steps(4) infinite;
+        }
+
+        .dynamic-text span {
+            position: relative;
+            height: 3rem;
+            color: white;
+        }
+
+        @keyframes slide {
+            100% {
+                top: -12rem;
+            }
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--card-background);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-home {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-home:hover {
+            color: var(--dark);
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            text-decoration: none;
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--tag-bg);
+            color: var(--primary);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: -3rem auto 4rem;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .about-section {
+            background: var(--card-background);
+            border-radius: var(--card-border-radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid var(--border-color);
+            opacity: 0;
+            animation: fadeIn 0.8s forwards;
+            animation-delay: 0.2s;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: var(--primary);
+            border-bottom: 2px solid var(--border-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .about-content p {
+            margin-bottom: 1.25rem;
+            font-size: 1.05rem;
+            color: var(--text-color);
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 1rem;
+        }
+
+        .skill-tag {
+            background: var(--tag-bg);
+            color: var(--primary);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            display: inline-flex;
+            align-items: center;
+            transition: var(--transition);
+        }
+
+        .skill-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .certification-item {
+            margin-bottom: 1rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .certification-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .certification-name {
+            font-weight: 600;
+            color: var(--dark);
+            font-size: 1.1rem;
+            margin-bottom: 0.25rem;
+            transition: var(--transition);
+        }
+
+        .certification-name:hover {
+            color: var(--primary);
+        }
+
+        .certification-issuer {
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        /* Footer */
+        footer {
+            padding: 3rem 0 2rem;
+            text-align: center;
+            color: var(--secondary);
+            background: var(--card-background);
+            border-top: 1px solid var(--border-color);
+            position: relative;
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--dark);
+            margin-bottom: 1rem;
+        }
+
+        .footer-text {
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .footer-social {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-social-link {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--tag-bg);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary);
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .footer-social-link:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .footer-nav a {
+            color: var(--dark);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+        }
+
+        .footer-nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .footer-nav a:hover::after {
+            width: 100%;
+        }
+
+        .footer-nav a:hover {
+            color: var(--primary);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid var(--border-color);
+            padding-top: 1.5rem;
+            margin-top: 1.5rem;
+            font-size: 0.9rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+
+            .typewriter-container {
+                font-size: 1.5rem;
+                height: 2.5rem;
+            }
+
+            .dynamic-text-wrapper {
+                height: 2.5rem;
+                line-height: 2.5rem;
+            }
+
+            .dynamic-text span {
+                height: 2.5rem;
+            }
+
+            @keyframes slide {
+                100% {
+                    top: -10rem;
+                }
+            }
+
+            .nav-container {
+                padding: 1rem;
+            }
+
+            .about-section {
+                padding: 1.75rem;
+            }
+
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-right {
+                gap: 1rem;
+            }
+
+            .typewriter-container {
+                flex-direction: column;
+                height: auto;
+            }
+
+            .static-text {
+                margin-right: 0;
+                margin-bottom: 0.5rem;
+            }
+
+            .footer-nav {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-home">
+                Portfolio
+            </a>
+            <div class="nav-right">
+                <a href="https://abinashpradhan01.github.io/blogs/" class="nav-link">Blog</a>
+                <a href="https://abinashpradhan01.github.io/projects/" class="nav-link">Projects</a>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header -->
+    <header class="header">
+        <h1>About Me</h1>
+        <div class="typewriter-container">
+            <div class="static-text">I am a</div>
+            <div class="dynamic-text-wrapper">
+                <div class="dynamic-text">
+                    <span>ML Engineer</span>
+                    <span>Data Scientist</span>
+                    <span>AI Engineer</span>
+                    <span>Data Engineer</span>
+                    <span>ML Engineer</span> <!-- Repeated for smooth loop -->
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <!-- About Me Section -->
+        <section class="about-section">
+            <h2 class="section-title">Who I Am</h2>
+            <div class="about-content">
+                <p>Hey there! I'm Abinash, a curious mind wandering through the incredible world of data science and AI.
+                    As I navigate through my Bachelor's program, I'm captivated by how we can transform raw data into
+                    meaningful insights and intelligent solutions.</p>
+                <p>What drives me is the genuine thrill of solving puzzles hidden within data. There's something magical
+                    about training machines to understand patterns that humans might miss. I love diving into code late
+                    at night, experimenting with algorithms, and watching as computers learn to make sense of our
+                    complex world.</p>
+                <p>My journey is just beginning, but I'm excited to continue growing and learning. I'm on the lookout
+                    for internship opportunities where I can apply my passion for natural language processing and
+                    machine learning to real-world challenges while soaking up knowledge from experienced mentors.</p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section class="about-section">
+            <h2 class="section-title">Education</h2>
+            <div class="about-content">
+                <p><strong>BSc in Data Science</strong> (2023-2026)</p>
+                <p>Bhadrak Autonomous College, Bhadrak, Odisha, India</p>
+                <p>CGPA: 8.61</p>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section class="about-section">
+            <h2 class="section-title">Technical Skills</h2>
+            <div class="about-content">
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fas fa-brain"></i>&nbsp; Natural Language Processing</span>
+                    <span class="skill-tag"><i class="fas fa-network-wired"></i>&nbsp; Deep Learning</span>
+                    <span class="skill-tag"><i class="fab fa-python"></i>&nbsp; Python</span>
+                    <span class="skill-tag"><i class="fab fa-java"></i>&nbsp; Java</span>
+                    <span class="skill-tag"><i class="fas fa-mobile-alt"></i>&nbsp; Android Development</span>
+                    <span class="skill-tag"><i class="fas fa-database"></i>&nbsp; SQL</span>
+                    <span class="skill-tag"><i class="fas fa-chart-bar"></i>&nbsp; Data Analysis</span>
+                    <span class="skill-tag"><i class="fas fa-table"></i>&nbsp; Pandas</span>
+                    <span class="skill-tag"><i class="fas fa-calculator"></i>&nbsp; NumPy</span>
+                    <span class="skill-tag"><i class="fas fa-chart-line"></i>&nbsp; Data Visualization</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications Section -->
+        <section class="about-section">
+            <h2 class="section-title">Certifications</h2>
+            <div class="about-content">
+                <div class="certification-item">
+                    <a href="https://www.coursera.org/account/accomplishments/specialization/V27D0D3EE4HJ"
+                        target="_blank" style="text-decoration: none;">
+                        <div class="certification-name">Machine Learning Specialization</div>
+                    </a>
+                    <div class="certification-issuer">deeplearning.ai</div>
+                </div>
+                <div class="certification-item">
+                    <div class="certification-name">Deep Learning Specialization</div>
+                    <div class="certification-issuer">deeplearning.ai</div>
+                </div>
+                <div class="certification-item">
+                    <div class="certification-name">Natural Language Processing Specialization</div>
+                    <div class="certification-issuer">deeplearning.ai</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interests Section -->
+        <section class="about-section">
+            <h2 class="section-title">Interests & Hobbies</h2>
+            <div class="about-content">
+                <p>When I'm not immersed in code or diving into datasets, you'll find me out on the cricket field
+                    enjoying the perfect blend of strategy and skill that the game offers. I'm also an avid reader with
+                    a particular fascination for history books - especially military history. There's something
+                    captivating about understanding how tactical decisions shaped our world.</p>
+                <p>While I occasionally enjoy getting lost in a good spy thriller, I generally gravitate toward
+                    non-fiction. I love learning about real events, discoveries, and the remarkable stories of people
+                    who've changed our world. These diverse interests help me maintain balance and often inspire
+                    creative approaches to technical problems.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">Abinash Pradhan</div>
+            <p class="footer-text">
+                Passionate about using data and AI to solve real-world problems. Always learning, always growing.
+            </p>
+            <div class="footer-social">
+                <a href="https://github.com/abinashpradhan01" target="_blank" class="footer-social-link"
+                    aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://in.linkedin.com/in/abinash-pradhan-a42157297" target="_blank"
+                    class="footer-social-link" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="mailto:baijayantis56@gmail.com" class="footer-social-link" aria-label="Email">
+                    <i class="far fa-envelope"></i>
+                </a>
+                <a href="#" class="footer-social-link" aria-label="Twitter">
+                    <i class="fab fa-twitter"></i>
+                </a>
+            </div>
+            <div class="footer-nav">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="https://abinashpradhan01.github.io/blogs/">Blog</a>
+                <a href="https://abinashpradhan01.github.io/projects/">Projects</a>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Abinash Pradhan. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark mode toggle functionality
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference
+        if (localStorage.getItem('theme') === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+        }
+
+        // Toggle theme
+        themeToggle.addEventListener('click', () => {
+            body.classList.toggle('dark-mode');
+
+            if (body.classList.contains('dark-mode')) {
+                localStorage.setItem('theme', 'dark');
+                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            } else {
+                localStorage.setItem('theme', 'light');
+                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+            }
+        });
+    </script>
+</body>
+
+</html>
