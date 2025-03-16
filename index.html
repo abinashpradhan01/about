@@ -48,6 +48,35 @@
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="https://abinashpradhan01.github.io/assets/favicon.png">
 
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "AboutPage",
+      "mainEntity": {
+        "@type": "Person",
+        "name": "Abinash Pradhan",
+        "jobTitle": "ML Engineer & Data Scientist",
+        "url": "https://abinashpradhan01.github.io/about.html",
+        "sameAs": [
+          "https://github.com/abinashpradhan01",
+          "https://in.linkedin.com/in/abinash-pradhan-a42157297"
+        ],
+        "knowsAbout": ["Machine Learning", "Data Science", "Artificial Intelligence", "Natural Language Processing", "Deep Learning"],
+        "description": "Abinash Pradhan is a passionate ML Engineer and Data Scientist specializing in Natural Language Processing and Deep Learning. Currently pursuing BSc in Data Science with a CGPA of 8.61.",
+        "alumniOf": {
+          "@type": "EducationalOrganization",
+          "name": "Indira Gandhi National Open University",
+          "sameAs": "http://www.ignou.ac.in/"
+        },
+        "skills": "Python, TensorFlow, PyTorch, Scikit-learn, Data Analysis, Machine Learning, Deep Learning, NLP"
+      }
+    }
+    </script>
+
+    <!-- ScrollReveal Library -->
+    <script src="https://unpkg.com/scrollreveal@4.0.9/dist/scrollreveal.min.js"></script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
@@ -212,6 +241,29 @@
             opacity: 0;
             animation: fadeIn 0.8s forwards;
             animation-delay: 0.2s;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .about-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 0;
+            background: var(--gradient-primary);
+            transition: height 0.4s ease;
+        }
+
+        .about-section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
+        }
+
+        .about-section:hover::before {
+            height: 100%;
         }
 
         .section-title {
@@ -221,6 +273,11 @@
             color: var(--primary);
             border-bottom: 2px solid var(--border-color);
             padding-bottom: 0.5rem;
+            transition: color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .about-section:hover .section-title {
+            border-color: var(--primary);
         }
 
         .about-content p {
@@ -794,6 +851,37 @@
 
         document.addEventListener("DOMContentLoaded", function () {
             if (textArray.length) setTimeout(type, newTextDelay + 250);
+
+            // Initialize ScrollReveal
+            const sr = ScrollReveal({
+                origin: 'bottom',
+                distance: '30px',
+                duration: 800,
+                delay: 300,
+                easing: 'cubic-bezier(0.5, 0, 0, 1)',
+                reset: false
+            });
+
+            // Apply to about sections with staggered reveal
+            sr.reveal('.about-section', {
+                interval: 200,
+                scale: 0.98
+            });
+
+            // Apply to header elements
+            sr.reveal('.header h1, .animated-text-container', {
+                origin: 'top',
+                distance: '20px',
+                interval: 200
+            });
+
+            // Apply to skill tags with micro-delay for cascade effect
+            sr.reveal('.skill-tag', {
+                interval: 50,
+                distance: '10px',
+                origin: 'left',
+                delay: 500
+            });
         });
     </script>
 </body>
