@@ -4,10 +4,54 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abinash Pradhan | About Me</title>
+    <title>Abinash Pradhan | ML Engineer & Data Scientist</title>
+
+    <!-- Primary Meta Tags -->
+    <meta name="title" content="Abinash Pradhan | ML Engineer & Data Scientist">
+    <meta name="description"
+        content="Abinash Pradhan is a passionate ML Engineer and Data Scientist specializing in Natural Language Processing and Deep Learning. Currently pursuing BSc in Data Science with a CGPA of 8.61.">
+    <meta name="keywords"
+        content="ML Engineer, Data Scientist, AI Engineer, Natural Language Processing, Deep Learning, Python, Data Science, Machine Learning, Abinash Pradhan">
+    <meta name="author" content="Abinash Pradhan">
+    <meta name="application-name" content="Abinash Pradhan Portfolio">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://abinashpradhan01.github.io/about.html">
+    <meta property="og:title" content="Abinash Pradhan | ML Engineer & Data Scientist">
+    <meta property="og:description"
+        content="Abinash Pradhan is a passionate ML Engineer and Data Scientist specializing in Natural Language Processing and Deep Learning. Currently pursuing BSc in Data Science with a CGPA of 8.61.">
+    <meta property="og:site_name" content="Abinash Pradhan Portfolio">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://abinashpradhan01.github.io/about.html">
+    <meta property="twitter:title" content="Abinash Pradhan | ML Engineer & Data Scientist">
+    <meta property="twitter:description"
+        content="Abinash Pradhan is a passionate ML Engineer and Data Scientist specializing in Natural Language Processing and Deep Learning. Currently pursuing BSc in Data Science with a CGPA of 8.61.">
+    <meta property="twitter:creator" content="@abinashpradhan01">
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="English">
+    <meta name="revisit-after" content="7 days">
+    <meta name="generator" content="HTML5">
+    <meta name="theme-color" content="#4f46e5">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <meta name="apple-mobile-web-app-title" content="Abinash Pradhan">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://abinashpradhan01.github.io/about.html">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://abinashpradhan01.github.io/assets/favicon.png">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #4f46e5;
@@ -89,131 +133,65 @@
             animation: fadeInUp 1s forwards 0.3s;
         }
 
-        .typewriter-container {
+        .animated-text-container {
             display: flex;
             justify-content: center;
             align-items: center;
             height: 3rem;
             margin-bottom: 1.5rem;
-            font-size: 1.8rem;
-            font-weight: 600;
             opacity: 0;
             transform: translateY(20px);
             animation: fadeInUp 1s forwards 0.5s;
         }
 
         .static-text {
+            font-size: 1.8rem;
+            font-weight: 600;
             margin-right: 0.5rem;
         }
 
         .dynamic-text-wrapper {
+            font-size: 1.8rem;
+            font-weight: 700;
+            font-family: 'Dancing Script', cursive;
+            position: relative;
             height: 3rem;
-            line-height: 3rem;
+            display: inline-block;
             overflow: hidden;
-            position: relative;
         }
 
-        .dynamic-text {
+        .dynamic-text-wrapper .dynamic-text {
             position: relative;
-            display: flex;
-            flex-direction: column;
-            animation: slide 12s steps(4) infinite;
+            display: inline-block;
+            color: #ffffff;
         }
 
-        .dynamic-text span {
-            position: relative;
-            height: 3rem;
-            color: white;
+        .dynamic-text-wrapper .dynamic-text:after {
+            display: none;
         }
 
-        @keyframes slide {
+        @keyframes blink {
+
+            0%,
             100% {
-                top: -12rem;
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0;
             }
         }
 
-        /* Navigation */
-        .nav {
-            background: var(--card-background);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
+        @keyframes typing {
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.25rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
+            40%,
+            60% {
+                left: calc(100% + 4px);
+            }
 
-        .nav-home {
-            font-weight: 700;
-            font-size: 1.2rem;
-            color: var(--primary);
-            text-decoration: none;
-            position: relative;
-        }
-
-        .nav-home:hover {
-            color: var(--dark);
-        }
-
-        .nav-right {
-            display: flex;
-            gap: 2rem;
-            align-items: center;
-        }
-
-        .nav-link {
-            font-weight: 500;
-            color: var(--dark);
-            text-decoration: none;
-            position: relative;
-        }
-
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: var(--primary);
-            transition: width 0.3s;
-        }
-
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        .nav-link:hover {
-            color: var(--primary);
-        }
-
-        /* Theme toggle */
-        .theme-toggle {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--tag-bg);
-            color: var(--primary);
-            border: none;
-            cursor: pointer;
-            font-size: 1.2rem;
-            transition: var(--transition);
-        }
-
-        .theme-toggle:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-2px);
+            100% {
+                left: 0;
+            }
         }
 
         .container {
@@ -307,7 +285,7 @@
 
         /* Footer */
         footer {
-            padding: 3rem 0 2rem;
+            padding: 2rem 0 1.5rem;
             text-align: center;
             color: var(--secondary);
             background: var(--card-background);
@@ -321,7 +299,7 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 4px;
+            height: 2px;
             background: var(--gradient-primary);
         }
 
@@ -341,7 +319,7 @@
         .footer-text {
             font-size: 0.95rem;
             max-width: 600px;
-            margin: 0 auto 2rem;
+            margin: 0 auto 1.5rem;
             line-height: 1.7;
         }
 
@@ -349,7 +327,7 @@
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
         .footer-social-link {
@@ -441,7 +419,7 @@
                 font-size: 2.5rem;
             }
 
-            .typewriter-container {
+            .animated-text-container {
                 font-size: 1.5rem;
                 height: 2.5rem;
             }
@@ -479,7 +457,7 @@
                 gap: 1rem;
             }
 
-            .typewriter-container {
+            .animated-text-container {
                 flex-direction: column;
                 height: auto;
             }
@@ -494,39 +472,117 @@
                 gap: 1rem;
             }
         }
+
+        .skill-category {
+            font-size: 1.2rem;
+            color: var(--primary);
+            margin: 1.5rem 0 0.75rem;
+            font-weight: 600;
+        }
+
+        .skill-category:first-child {
+            margin-top: 0;
+        }
+
+        /* Navigation */
+        .nav {
+            background: var(--card-background);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            padding: 1.25rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .nav-right {
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        .nav-link {
+            font-weight: 500;
+            color: var(--dark);
+            text-decoration: none;
+            position: relative;
+            padding: 0.5rem 0;
+            transition: transform 0.3s, color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+        .nav-link:hover {
+            color: var(--primary);
+            transform: translateY(-2px);
+        }
+
+        /* Theme toggle */
+        .theme-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--tag-bg);
+            color: var(--primary);
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
     </style>
 </head>
 
 <body>
     <!-- Navigation -->
-    <nav class="nav">
+    <nav class="nav" role="navigation" aria-label="Main navigation">
         <div class="nav-container">
-            <a href="index.html" class="nav-home">
-                Portfolio
-            </a>
             <div class="nav-right">
-                <a href="https://abinashpradhan01.github.io/blogs/" class="nav-link">Blog</a>
+                <a href="https://abinashpradhan01.github.io" class="nav-link">Home</a>
+                <a href="https://abinashpradhan01.github.io/blog.html" class="nav-link">Blog</a>
                 <a href="https://abinashpradhan01.github.io/projects/" class="nav-link">Projects</a>
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode">
-                    <i class="fas fa-moon"></i>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark mode" aria-pressed="false">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
                 </button>
             </div>
         </div>
     </nav>
 
     <!-- Header -->
-    <header class="header">
+    <header class="header" role="banner">
         <h1>About Me</h1>
-        <div class="typewriter-container">
+        <div class="animated-text-container" role="status" aria-live="polite">
             <div class="static-text">I am a</div>
             <div class="dynamic-text-wrapper">
-                <div class="dynamic-text">
-                    <span>ML Engineer</span>
-                    <span>Data Scientist</span>
-                    <span>AI Engineer</span>
-                    <span>Data Engineer</span>
-                    <span>ML Engineer</span> <!-- Repeated for smooth loop -->
-                </div>
+                <span class="dynamic-text"></span>
             </div>
         </div>
     </header>
@@ -536,16 +592,21 @@
         <section class="about-section">
             <h2 class="section-title">Who I Am</h2>
             <div class="about-content">
-                <p>Hey there! I'm Abinash, a curious mind wandering through the incredible world of data science and AI.
-                    As I navigate through my Bachelor's program, I'm captivated by how we can transform raw data into
-                    meaningful insights and intelligent solutions.</p>
-                <p>What drives me is the genuine thrill of solving puzzles hidden within data. There's something magical
-                    about training machines to understand patterns that humans might miss. I love diving into code late
-                    at night, experimenting with algorithms, and watching as computers learn to make sense of our
-                    complex world.</p>
-                <p>My journey is just beginning, but I'm excited to continue growing and learning. I'm on the lookout
-                    for internship opportunities where I can apply my passion for natural language processing and
-                    machine learning to real-world challenges while soaking up knowledge from experienced mentors.</p>
+                <p>Hello! I'm Abinash, a Data Science student with a growing passion for machine learning and AI.
+                    Interestingly, I stumbled into this field by chance. What started as simple curiosity turned into a
+                    fascinating journey when I saw how data could tell stories and solve problems in ways I never
+                    imagined.</p>
+                <p>My technical journey began with Python basics, then quickly expanded to libraries like NumPy and
+                    Pandas. The real turning point came when I discovered Andrew Ng's machine learning courses, which
+                    opened my eyes to the possibilities of AI. This led me to complete the Machine Learning
+                    Specialization from deeplearning.ai, followed by diving deeper with Andrej Karpathy's neural
+                    networks playlist. I've since earned both the Deep Learning and Natural Language Processing
+                    Specializations.</p>
+                <p>Along the way, I've built several projects that apply what I've learned – each one teaching me
+                    something new about implementing these technologies in practical ways. Currently, I'm on the lookout
+                    for internship opportunities where I can work on real-world challenges, apply my skills, and learn
+                    from experienced mentors. I believe there's so much more to discover in this field, and I'm excited
+                    to contribute to meaningful projects that make a difference.</p>
             </div>
         </section>
 
@@ -563,17 +624,42 @@
         <section class="about-section">
             <h2 class="section-title">Technical Skills</h2>
             <div class="about-content">
+                <h3 class="skill-category">Skills</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag"><i class="fas fa-brain"></i>&nbsp; Natural Language Processing</span>
-                    <span class="skill-tag"><i class="fas fa-network-wired"></i>&nbsp; Deep Learning</span>
-                    <span class="skill-tag"><i class="fab fa-python"></i>&nbsp; Python</span>
-                    <span class="skill-tag"><i class="fab fa-java"></i>&nbsp; Java</span>
-                    <span class="skill-tag"><i class="fas fa-mobile-alt"></i>&nbsp; Android Development</span>
-                    <span class="skill-tag"><i class="fas fa-database"></i>&nbsp; SQL</span>
-                    <span class="skill-tag"><i class="fas fa-chart-bar"></i>&nbsp; Data Analysis</span>
-                    <span class="skill-tag"><i class="fas fa-table"></i>&nbsp; Pandas</span>
-                    <span class="skill-tag"><i class="fas fa-calculator"></i>&nbsp; NumPy</span>
-                    <span class="skill-tag"><i class="fas fa-chart-line"></i>&nbsp; Data Visualization</span>
+                    <span class="skill-tag"><i class="fas fa-chart-bar" aria-hidden="true"></i>&nbsp; Data
+                        Analysis</span>
+                    <span class="skill-tag"><i class="fas fa-chart-line" aria-hidden="true"></i>&nbsp; Data
+                        Visualization</span>
+                    <span class="skill-tag"><i class="fas fa-database" aria-hidden="true"></i>&nbsp; Data
+                        Engineering</span>
+                    <span class="skill-tag"><i class="fas fa-robot" aria-hidden="true"></i>&nbsp; Machine
+                        Learning</span>
+                    <span class="skill-tag"><i class="fas fa-network-wired" aria-hidden="true"></i>&nbsp; Deep
+                        Learning</span>
+                    <span class="skill-tag"><i class="fas fa-brain" aria-hidden="true"></i>&nbsp; Natural Language
+                        Processing</span>
+                    <span class="skill-tag"><i class="fab fa-android" aria-hidden="true"></i>&nbsp; Android
+                        Development</span>
+                    <span class="skill-tag"><i class="fas fa-globe" aria-hidden="true"></i>&nbsp; Web Development</span>
+                </div>
+
+                <h3 class="skill-category">Languages</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fab fa-python" aria-hidden="true"></i>&nbsp; Python</span>
+                    <span class="skill-tag"><i class="fab fa-java" aria-hidden="true"></i>&nbsp; Java</span>
+                    <span class="skill-tag"><i class="fas fa-code" aria-hidden="true"></i>&nbsp; C/C++</span>
+                    <span class="skill-tag"><i class="fas fa-database" aria-hidden="true"></i>&nbsp; SQL</span>
+                </div>
+
+                <h3 class="skill-category">Frameworks & Libraries</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fas fa-table" aria-hidden="true"></i>&nbsp; Pandas</span>
+                    <span class="skill-tag"><i class="fas fa-calculator" aria-hidden="true"></i>&nbsp; NumPy</span>
+                    <span class="skill-tag"><i class="fas fa-chart-pie" aria-hidden="true"></i>&nbsp; Matplotlib</span>
+                    <span class="skill-tag"><i class="fas fa-chart-area" aria-hidden="true"></i>&nbsp; Seaborn</span>
+                    <span class="skill-tag"><i class="fas fa-cogs" aria-hidden="true"></i>&nbsp; Scikit-learn</span>
+                    <span class="skill-tag"><i class="fas fa-brain" aria-hidden="true"></i>&nbsp; TensorFlow</span>
+                    <span class="skill-tag"><i class="fas fa-fire" aria-hidden="true"></i>&nbsp; PyTorch</span>
                 </div>
             </div>
         </section>
@@ -604,14 +690,16 @@
         <section class="about-section">
             <h2 class="section-title">Interests & Hobbies</h2>
             <div class="about-content">
-                <p>When I'm not immersed in code or diving into datasets, you'll find me out on the cricket field
-                    enjoying the perfect blend of strategy and skill that the game offers. I'm also an avid reader with
-                    a particular fascination for history books - especially military history. There's something
-                    captivating about understanding how tactical decisions shaped our world.</p>
-                <p>While I occasionally enjoy getting lost in a good spy thriller, I generally gravitate toward
-                    non-fiction. I love learning about real events, discoveries, and the remarkable stories of people
-                    who've changed our world. These diverse interests help me maintain balance and often inspire
-                    creative approaches to technical problems.</p>
+                <p>Cricket has been my passion since childhood. I play whenever I get the chance – there's nothing like
+                    the feeling of hitting a perfect cover drive or taking a wicket at a crucial moment. I'm usually the
+                    one organizing matches with friends on weekends.</p>
+                <p>I'm also really into history, especially military history. I find myself getting lost in books about
+                    ancient battles and military strategies. There's something fascinating about how decisions made
+                    centuries ago shaped the world we live in today.</p>
+                <p>When it comes to reading, I mostly gravitate toward non-fiction. I enjoy biographies of interesting
+                    people and books about scientific discoveries. That said, I do occasionally enjoy a good spy
+                    thriller – John le Carré is one of my favorites when I need a break from textbooks and want to get
+                    lost in a good story.</p>
             </div>
         </section>
     </div>
@@ -619,30 +707,28 @@
     <!-- Footer -->
     <footer>
         <div class="footer-content">
-            <div class="footer-logo">Abinash Pradhan</div>
             <p class="footer-text">
-                Passionate about using data and AI to solve real-world problems. Always learning, always growing.
+                Always learning, always growing.
             </p>
             <div class="footer-social">
                 <a href="https://github.com/abinashpradhan01" target="_blank" class="footer-social-link"
                     aria-label="GitHub">
-                    <i class="fab fa-github"></i>
+                    <i class="fab fa-github" aria-hidden="true"></i>
                 </a>
                 <a href="https://in.linkedin.com/in/abinash-pradhan-a42157297" target="_blank"
                     class="footer-social-link" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in"></i>
+                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
                 </a>
                 <a href="mailto:baijayantis56@gmail.com" class="footer-social-link" aria-label="Email">
-                    <i class="far fa-envelope"></i>
+                    <i class="far fa-envelope" aria-hidden="true"></i>
                 </a>
                 <a href="#" class="footer-social-link" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-twitter" aria-hidden="true"></i>
                 </a>
             </div>
             <div class="footer-nav">
-                <a href="index.html">Home</a>
-                <a href="about.html">About</a>
-                <a href="https://abinashpradhan01.github.io/blogs/">Blog</a>
+                <a href="https://abinashpradhan01.github.io">Home</a>
+                <a href="https://abinashpradhan01.github.io/blog.html">Blog</a>
                 <a href="https://abinashpradhan01.github.io/projects/">Projects</a>
             </div>
             <div class="footer-bottom">
@@ -659,20 +745,58 @@
         // Check for saved theme preference
         if (localStorage.getItem('theme') === 'dark') {
             body.classList.add('dark-mode');
-            themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+            themeToggle.innerHTML = '<i class="fas fa-sun" aria-hidden="true"></i>';
+            themeToggle.setAttribute('aria-pressed', 'true');
         }
 
         // Toggle theme
         themeToggle.addEventListener('click', () => {
             body.classList.toggle('dark-mode');
+            const isDarkMode = body.classList.contains('dark-mode');
 
-            if (body.classList.contains('dark-mode')) {
+            if (isDarkMode) {
                 localStorage.setItem('theme', 'dark');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
+                themeToggle.innerHTML = '<i class="fas fa-sun" aria-hidden="true"></i>';
+                themeToggle.setAttribute('aria-pressed', 'true');
             } else {
                 localStorage.setItem('theme', 'light');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
+                themeToggle.innerHTML = '<i class="fas fa-moon" aria-hidden="true"></i>';
+                themeToggle.setAttribute('aria-pressed', 'false');
             }
+        });
+
+        // Text animation
+        const textArray = ["Machine Learning Engineer", "AI Engineer", "Data Scientist"];
+        const typingDelay = 80;  // Faster typing
+        const erasingDelay = 40; // Faster erasing
+        const newTextDelay = 1200; // Less time between words
+        let textArrayIndex = 0;
+        let charIndex = 0;
+
+        function type() {
+            if (charIndex < textArray[textArrayIndex].length) {
+                document.querySelector(".dynamic-text").textContent += textArray[textArrayIndex].charAt(charIndex);
+                charIndex++;
+                setTimeout(type, typingDelay);
+            } else {
+                setTimeout(erase, newTextDelay);
+            }
+        }
+
+        function erase() {
+            if (charIndex > 0) {
+                document.querySelector(".dynamic-text").textContent = textArray[textArrayIndex].substring(0, charIndex - 1);
+                charIndex--;
+                setTimeout(erase, erasingDelay);
+            } else {
+                textArrayIndex++;
+                if (textArrayIndex >= textArray.length) textArrayIndex = 0;
+                setTimeout(type, 600); // Start typing sooner
+            }
+        }
+
+        document.addEventListener("DOMContentLoaded", function () {
+            if (textArray.length) setTimeout(type, newTextDelay + 250);
         });
     </script>
 </body>
