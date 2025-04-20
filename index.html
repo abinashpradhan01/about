@@ -134,10 +134,18 @@
         .header {
             background: var(--gradient-primary);
             color: white;
-            padding: 4rem 0 6rem 0;
+            height: 300px;
+            /* Fixed height for uniformity */
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             text-align: center;
             position: relative;
             overflow: hidden;
+            margin-bottom: 0;
+            animation: fadeInUp 1s ease-in-out;
+            /* Consistent animation */
         }
 
         .header::after {
@@ -149,6 +157,18 @@
             height: 100px;
             background: var(--background-color);
             transform: skewY(-3deg);
+        }
+
+        .dark-mode .header {
+            background: var(--primary-dark);
+            /* Adjust for dark mode */
+        }
+
+        @media (max-width: 768px) {
+            .header {
+                height: 250px;
+                /* Adjust height for smaller screens */
+            }
         }
 
         .header h1 {
@@ -342,110 +362,69 @@
 
         /* Footer */
         footer {
-            padding: 2rem 0 1.5rem;
+            padding: 1.5rem;
             text-align: center;
-            color: var(--secondary);
-            background: var(--card-background);
+            background-color: var(--card-background);
             border-top: 1px solid var(--border-color);
-            position: relative;
-        }
-
-        footer::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 2px;
-            background: var(--gradient-primary);
-        }
-
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .footer-logo {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--dark);
-            margin-bottom: 1rem;
-        }
-
-        .footer-text {
-            font-size: 0.95rem;
-            max-width: 600px;
-            margin: 0 auto 1.5rem;
-            line-height: 1.7;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
 
         .footer-social {
+            margin: 0.75rem 0;
             display: flex;
             justify-content: center;
-            gap: 1.5rem;
-            margin-bottom: 1.5rem;
+            gap: 1.25rem;
         }
 
-        .footer-social-link {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            background: var(--tag-bg);
+        .social-link {
             display: flex;
             align-items: center;
             justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: var(--background-color);
             color: var(--primary);
-            font-size: 1.2rem;
-            transition: var(--transition);
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        .footer-social-link:hover {
-            background: var(--primary);
-            color: white;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-        }
-
-        .footer-nav {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin: 1.5rem 0;
-        }
-
-        .footer-nav a {
-            color: var(--dark);
-            text-decoration: none;
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
-        }
-
-        .footer-nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
+        .social-link:hover {
+            color: var(--light);
             background-color: var(--primary);
-            transition: width 0.3s;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
-        .footer-nav a:hover::after {
-            width: 100%;
+        .footer-text {
+            color: var(--text-color);
+            font-size: 0.85rem;
+            margin: 0;
+            font-weight: 500;
         }
 
-        .footer-nav a:hover {
+        .footer-proverb {
+            font-style: italic;
             color: var(--primary);
+            margin-bottom: 0.75rem;
+            font-size: 0.9rem;
+            font-weight: 500;
         }
 
-        .footer-bottom {
-            border-top: 1px solid var(--border-color);
-            padding-top: 1.5rem;
-            margin-top: 1.5rem;
-            font-size: 0.9rem;
+        /* Dark mode overrides */
+        .dark-mode footer {
+            background-color: var(--card-background);
+            border-color: var(--border-color);
+        }
+
+        .dark-mode .social-link {
+            background-color: var(--background-color);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+
+        .dark-mode .social-link:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
         }
 
         @keyframes fadeInUp {
@@ -681,42 +660,36 @@
         <section class="about-section">
             <h2 class="section-title">Technical Skills</h2>
             <div class="about-content">
-                <h3 class="skill-category">Skills</h3>
-                <div class="skill-tags">
-                    <span class="skill-tag"><i class="fas fa-chart-bar" aria-hidden="true"></i>&nbsp; Data
-                        Analysis</span>
-                    <span class="skill-tag"><i class="fas fa-chart-line" aria-hidden="true"></i>&nbsp; Data
-                        Visualization</span>
-                    <span class="skill-tag"><i class="fas fa-database" aria-hidden="true"></i>&nbsp; Data
-                        Engineering</span>
-                    <span class="skill-tag"><i class="fas fa-robot" aria-hidden="true"></i>&nbsp; Machine
-                        Learning</span>
-                    <span class="skill-tag"><i class="fas fa-network-wired" aria-hidden="true"></i>&nbsp; Deep
-                        Learning</span>
-                    <span class="skill-tag"><i class="fas fa-brain" aria-hidden="true"></i>&nbsp; Natural Language
-                        Processing</span>
-                    <span class="skill-tag"><i class="fab fa-android" aria-hidden="true"></i>&nbsp; Android
-                        Development</span>
-                    <span class="skill-tag"><i class="fas fa-globe" aria-hidden="true"></i>&nbsp; Web Development</span>
-                </div>
-
                 <h3 class="skill-category">Languages</h3>
                 <div class="skill-tags">
                     <span class="skill-tag"><i class="fab fa-python" aria-hidden="true"></i>&nbsp; Python</span>
                     <span class="skill-tag"><i class="fab fa-java" aria-hidden="true"></i>&nbsp; Java</span>
-                    <span class="skill-tag"><i class="fas fa-code" aria-hidden="true"></i>&nbsp; C/C++</span>
+                    <span class="skill-tag"><i class="fas fa-code" aria-hidden="true"></i>&nbsp; C++</span>
+                    <span class="skill-tag"><i class="fas fa-code" aria-hidden="true"></i>&nbsp; R</span>
                     <span class="skill-tag"><i class="fas fa-database" aria-hidden="true"></i>&nbsp; SQL</span>
                 </div>
 
                 <h3 class="skill-category">Frameworks & Libraries</h3>
                 <div class="skill-tags">
-                    <span class="skill-tag"><i class="fas fa-table" aria-hidden="true"></i>&nbsp; Pandas</span>
                     <span class="skill-tag"><i class="fas fa-calculator" aria-hidden="true"></i>&nbsp; NumPy</span>
-                    <span class="skill-tag"><i class="fas fa-chart-pie" aria-hidden="true"></i>&nbsp; Matplotlib</span>
-                    <span class="skill-tag"><i class="fas fa-chart-area" aria-hidden="true"></i>&nbsp; Seaborn</span>
-                    <span class="skill-tag"><i class="fas fa-cogs" aria-hidden="true"></i>&nbsp; Scikit-learn</span>
-                    <span class="skill-tag"><i class="fas fa-brain" aria-hidden="true"></i>&nbsp; TensorFlow</span>
+                    <span class="skill-tag"><i class="fas fa-table" aria-hidden="true"></i>&nbsp; Pandas</span>
                     <span class="skill-tag"><i class="fas fa-fire" aria-hidden="true"></i>&nbsp; PyTorch</span>
+                    <span class="skill-tag"><i class="fas fa-brain" aria-hidden="true"></i>&nbsp; TensorFlow</span>
+                    <span class="skill-tag"><i class="fas fa-cogs" aria-hidden="true"></i>&nbsp; Scikit-learn</span>
+                    <span class="skill-tag"><i class="fas fa-chart-pie" aria-hidden="true"></i>&nbsp; Matplotlib</span>
+                </div>
+
+                <h3 class="skill-category">Core Skills</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag"><i class="fas fa-robot" aria-hidden="true"></i>&nbsp; Machine
+                        Learning</span>
+                    <span class="skill-tag"><i class="fas fa-network-wired" aria-hidden="true"></i>&nbsp; Deep
+                        Learning</span>
+                    <span class="skill-tag"><i class="fas fa-brain" aria-hidden="true"></i>&nbsp; NLP</span>
+                    <span class="skill-tag"><i class="fas fa-chart-bar" aria-hidden="true"></i>&nbsp; Data
+                        Analysis</span>
+                    <span class="skill-tag"><i class="fas fa-database" aria-hidden="true"></i>&nbsp; Data
+                        Engineering</span>
                 </div>
             </div>
         </section>
@@ -763,32 +736,20 @@
 
     <!-- Footer -->
     <footer>
-        <div class="footer-content">
-            <p class="footer-text">
-                Always learning, always growing.
-            </p>
-            <div class="footer-social">
-                <a href="https://github.com/abinashpradhan01" target="_blank" class="footer-social-link"
-                    aria-label="GitHub">
-                    <i class="fab fa-github" aria-hidden="true"></i>
-                </a>
-                <a href="https://in.linkedin.com/in/abinash-pradhan-a42157297" target="_blank"
-                    class="footer-social-link" aria-label="LinkedIn">
-                    <i class="fab fa-linkedin-in" aria-hidden="true"></i>
-                </a>
-                <a href="mailto:baijayantis56@gmail.com" class="footer-social-link" aria-label="Email">
-                    <i class="far fa-envelope" aria-hidden="true"></i>
-                </a>
-            </div>
-            <div class="footer-nav">
-                <a href="https://abinashpradhan01.github.io">Home</a>
-                <a href="https://abinashpradhan01.github.io/blogs/">Blog</a>
-                <a href="https://abinashpradhan01.github.io/projects/">Projects</a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Abinash Pradhan. All rights reserved.</p>
-            </div>
+        <p class="footer-proverb">always learning, always growing</p>
+        <div class="footer-social">
+            <a href="https://github.com/abinashpradhan01" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/abinash-pradhan-01" class="social-link" target="_blank"
+                rel="noopener noreferrer">
+                <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="mailto:abinash01pradhan@gmail.com" class="social-link" target="_blank" rel="noopener noreferrer">
+                <i class="far fa-envelope"></i>
+            </a>
         </div>
+        <p class="footer-text">&copy; 2025 Abinash Pradhan. All rights reserved.</p>
     </footer>
 
     <script>
